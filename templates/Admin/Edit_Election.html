@@ -1,0 +1,28 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/update_election/"method="post">
+    {% csrf_token %}
+<table border="1"align="center" class="table table-responsive">
+        <input type="hidden"name="id1"value="{{ data.id }}">
+
+        <tr>
+            <th>Election Name:</th>
+            <td><input type="text" name="electionname"class="form-control" pattern="[A-Z /a-z]+"value="{{ data.electionname }}"></td>
+        </tr>
+    <tr>
+        <th>Election Declared Date:</th>
+        <td><input type="text"name="electiondeclareddate"class="form-control" value="{{data.electiondeclareddate}}"></td>
+    </tr>
+    <tr><th>Election date</th>
+    <td><input type="text"name="electiondate"class="form-control" value="{{ data.electiondate }}"></td></tr>
+    <tr>
+        <th>status</th>
+        <td><input type="text"name="status"class="form-control"pattern="[A-Z /a-z]+" value="{{ data.status }}"></td>
+    </tr>
+        <tr><td colspan="2"align="center"><input type="submit"class="btn btn-warning" value="UPDATE"></td></tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

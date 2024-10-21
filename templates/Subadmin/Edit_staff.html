@@ -1,0 +1,64 @@
+{% extends 'SubadminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/update_staff/"method="post"enctype="multipart/form-data">
+{% csrf_token %}
+<table border="1"align="center"class="table table-responsive">
+        <input type="hidden"name="id1"value="{{ data.id }}">
+
+    <tr>
+        <th>Staff Name</th>
+        <td><input type="text"name="staffname" value="{{ data.staffname }}" pattern="[A-Z /a-z]+" class="form-control"required></td>
+    </tr>
+
+    <tr>
+        <th>Gender</th>
+        <td><input type="text"name="gender"value="{{ data.gender }}" pattern="[A-Z /a-z]+" class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Dob</th>
+        <td><input type="date"name="dob"value="{{ data.dob }}"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Photo</th>
+        <td><input type="file"name="photo"value="{{ data.photo }}"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Housename</th>
+        <td><input type="text" name="hname"value="{{ data.housename }}"pattern="[A-Z /a-z]+"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Place</th>
+        <td><input type="text"name="place"value="{{ data.place }}"pattern="[A-Z /a-z]+" class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>City</th>
+        <td><input type="text"name="city"value="{{ data.city }}"pattern="[A-Z /a-z]+" class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>State</th>
+        <td><input type="text"name="state"value="{{ data.state }}"pattern="[A-Z /a-z]+" class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><input type="email"name="email"value="{{ data.email }}"class="form-control"pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"required></td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td><input type="number"name="phone"value="{{ data.phone }}"pattern="[0-9]" class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Department</th>
+        <td><select name="department"class="form-control">
+            {% for i in data1 %}
+            <option value="{{ i.id }}">{{ i.departmentname }}</option>
+            {% endfor %}
+        </select></td>
+    </tr>
+    <tr>
+        <td colspan="2"align="center"><input type="submit"value="Update"class="btn btn-warning"></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

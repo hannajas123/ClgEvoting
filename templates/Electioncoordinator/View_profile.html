@@ -1,0 +1,44 @@
+{% extends 'Electioncoodinator_Home.html' %}
+{% block body %}
+<body>
+
+    <table align="center"class="table table-responsive">
+       <tr>
+           <td colspan="2"align="center"><img src="{{ data.STAFF.photo }}"width="150px"height="150px"class="img-circle"></td>
+       </tr>
+        <tr>
+            <th>Name:</th>
+            <td>{{ data.STAFF.staffname }}</td>
+        </tr>
+        <tr>
+            <th>gender</th>
+            <td>{{ data.STAFF.gender }}</td>
+        </tr>
+        <tr>
+            <th>Phone.no:</th>
+            <td>{{ data.STAFF.phone }}</td>
+        </tr>
+        <tr>
+            <th>Dob</th>
+            <td>{{ data.STAFF.dob }}</td>
+        </tr>
+        <tr>
+            <th>Housename</th>
+            <td>{{ data.STAFF.housename }}</td>
+        </tr>
+        <tr>
+            <th>place</th>
+            <td>{{ data.STAFF.place }}</td>
+        </tr>
+        <tr>
+            <th>state</th>
+            <td>{{ data.STAFF.state }}</td>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td>{{ data.STAFF.DEPARTMENT.departmentname }}</td>
+        </tr>
+    </table>
+
+</body>
+{% endblock %}

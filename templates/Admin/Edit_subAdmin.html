@@ -1,0 +1,29 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/update_SubAdmin/"method="post"enctype="multipart/form-data">
+    {% csrf_token %}
+<table border="1"align="center" class="table table-responsive">
+            <input type="hidden"name="id1"value="{{ data.id }}">
+
+        <tr>
+            <th>Sub Admin Name:</th>
+            <td><input type="text" name="subadminname"pattern="[A-Z /a-z]+"value="{{ data.subadminname }}" class="form-control" required></td>
+        </tr>
+    <tr>
+        <th>email:</th>
+        <td><input type="email"name="email"value="{{ data.email }}"pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" class="form-control"required></td>
+    </tr>
+    <tr><th>Phoneno.:</th>
+    <td><input type="number"name="phoneno"value="{{ data.phoneno }}"pattern="[0-9]" class="form-control"required></td></tr>
+    <tr>
+        <th>photo:</th>
+        <td><img src="{{ data.photo }}"width="100px"height="100px"></td>
+        <td><input type="file"name="img" class="form-control"></td>
+    </tr>
+        <tr><td colspan="2"align="center"><input type="submit"value="UPDATE"class="btn btn-warning"></td></tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

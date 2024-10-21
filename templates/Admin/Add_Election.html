@@ -1,0 +1,26 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/Add_election_post/"method="post">
+    {% csrf_token %}
+<table border="1"align="center" class="table table-responsive">
+        <tr>
+            <th>Election Name:</th>
+            <td><input type="text" name="electionname"class="form-control"pattern="[A-Z /a-z]+" required></td>
+        </tr>
+    <tr>
+        <th>Election Declared Date:</th>
+        <td><input type="date"name="electiondeclareddate"class="form-control"required></td>
+    </tr>
+    <tr><th>Election Date:</th>
+    <td><input type="date"name="electiondate"class="form-control"required></td></tr>
+{#    <tr>#}
+{#        <th>status</th>#}
+{#        <td><input type="text"name="status"></td>#}
+{#    </tr>#}
+        <tr><td colspan="2"align="center"><input type="submit"value="ADD"class="btn btn-warning"></td></tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

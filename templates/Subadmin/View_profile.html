@@ -1,0 +1,25 @@
+{% extends 'SubadminHome.html' %}
+{% block body %}
+<body>
+
+    <table align="center"class="table table-bordered">
+       <tr>
+           <td colspan="2"align="center"><img src="{{ data.photo }}"width="150px"height="150px"class="img-circle"></td>
+       </tr>
+        <tr>
+            <th>Name:</th>
+            <td>{{ data.subadminname }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ data.email }}</td>
+        </tr>
+        <tr>
+            <th>Phone.no:</th>
+            <td>{{ data.phoneno }}</td>
+        </tr>
+
+    </table>
+
+</body>
+{% endblock %}

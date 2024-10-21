@@ -1,0 +1,25 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/Add_course_post/"method="post">
+{% csrf_token %}
+<table border="1"align="center" class="table table-responsive">
+        <tr>
+            <th >Course Name:</th>
+            <td><input type="text" name="cname"class="form-control" pattern="[A-Z /a-z]+" required></td>
+        </tr>
+    <tr>
+        <th>Department:</th>
+        <td><select name="department"class="form-control">
+                {% for i in data %}
+                  <option value="{{ i.id }}">{{ i.departmentname }}</option>
+                {% endfor %}        </select></td>
+    </tr>
+    <tr><th >Total sem:</th>
+    <td><input type="text"name="sem"class="form-control"pattern = "[0-9]" required></td></tr>
+        <tr><td colspan="2"align="center"><input type="submit"value="ADD" class="btn btn-warning "></td></tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

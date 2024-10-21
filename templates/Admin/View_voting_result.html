@@ -1,0 +1,21 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+ <table align="center" class="table table-bordered">
+<thead>
+    <tr style="background-color: #b06010">
+        <th>Sl.no</th>
+        <th>Nominee </th>
+        <th>Vote</th>
+    </tr>
+    </thead>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.vote }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

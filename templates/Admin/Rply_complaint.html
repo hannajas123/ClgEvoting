@@ -1,0 +1,27 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/Reply_post/"method="post">
+    {% csrf_token %}
+    <table align="center"border="1" class="table table-responsive">
+        <input type="hidden"name="id1"value="{{ data.id }}">
+
+        <tr>
+            <th>Compaints_id</th>
+            <td>{{ data.id }}</td>
+        </tr>
+        <tr>
+            <th>Complaint</th>
+            <td>{{ data.complaint }}</td>
+        </tr>
+        <tr>
+            <th>Reply:</th>
+            <td><input type="text"name="reply" class="form-control" pattern="[A-Z /a-z]+" required></td>
+        </tr>
+        <tr>
+            <td colspan="2"align="center"><input type="submit" value="Reply"class="btn btn-warning"></td>
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}

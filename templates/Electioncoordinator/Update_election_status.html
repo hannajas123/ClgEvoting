@@ -1,0 +1,30 @@
+{% extends 'Electioncoodinator_Home.html' %}
+{% block body %}
+<body>
+<form>
+<table border="1"align="center"class="table table-responsive">
+       <tr>
+           <th>Nomineee</th>
+           <td><input type="text"name="nominee"class="form-control"required></td>
+       </tr>
+        <tr>
+            <th>Election Name:</th>
+            <td><input type="text" name="electionname"class="form-control"  pattern="[A-Z /a-z]+" value="{{ i.electionname }}"required></td>
+        </tr>
+    <tr>
+        <th>Election Declared Date:</th>
+        <td><input type="text"name="electiondeclareddate"class="form-control" value="{{ i.electiondelecrareddate }}"required></td>
+    </tr>
+    <tr><th>Election date</th>
+    <td><input type="text"name="electiondate"class="form-control" value="{{ i.electiondate }}"required></td></tr>
+    <tr>
+        <th>status</th>
+        <td><input type="text"name="status"class="form-control" pattern="[A-Z /a-z]+" required></td>
+    </tr>
+
+        <tr><td colspan="2"align="center"><input type="submit"value="Update"class="btn btn-warning"></td></tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

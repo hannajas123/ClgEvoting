@@ -1,0 +1,62 @@
+{% extends 'SubadminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/Add_staff_post/"method="post"enctype="multipart/form-data">
+{% csrf_token %}
+<table border="1"align="center" class="table table-responsive">
+    <tr>
+        <th>Staff Name</th>
+        <td><input type="text"name="staffname"class="form-control"pattern="[A-Z /a-z]+" required></td>
+    </tr>
+
+    <tr>
+        <th>Gender</th>
+        <td><input type="text"name="gender"class="form-control"pattern="[A-Z /a-z]+" required></td>
+    </tr>
+    <tr>
+        <th>Dob</th>
+        <td><input type="date"name="dob"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Photo</th>
+        <td><input type="file"name="photo"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Housename</th>
+        <td><input type="text" name="hname"class="form-control"pattern="[A-Z /a-z]+"required></td>
+    </tr>
+    <tr>
+        <th>Place</th>
+        <td><input type="text"name="place"class="form-control"pattern="[A-Z /a-z]+"required></td>
+    </tr>
+    <tr>
+        <th>City</th>
+        <td><input type="text"name="city"class="form-control"pattern="[A-Z /a-z]+"required></td>
+    </tr>
+    <tr>
+        <th>State</th>
+        <td><input type="text"name="state"class="form-control"pattern="[A-Z /a-z]+"required></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><input type="email"name="email"class="form-control"pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"required></td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td><input type="number"name="phone"class="form-control" pattern="[0-9]" required></td>
+    </tr>
+    <tr>
+        <th>Department</th>
+        <td><select class="form-control" name="department">
+                    {% for i in data %}
+                  <option value="{{ i.id }}">{{ i.departmentname }}</option>
+                    {% endfor %}
+                </select>
+    </tr>
+    <tr>
+        <td colspan="2"align="center"><input type="submit"value="Add"class="btn btn-warning"></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

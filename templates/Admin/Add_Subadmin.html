@@ -1,0 +1,26 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/Add_Subadmin_post/"method="post"enctype="multipart/form-data">
+    {% csrf_token %}
+<table border="1"align="center" class="table table-responsive">
+        <tr>
+            <th>Sub Admin Name:</th>
+            <td><input type="text" name="subadminname"class="form-control"pattern="[A-Z /a-z]+"required></td>
+        </tr>
+    <tr>
+        <th>email:</th>
+        <td><input type="email"name="email"class="form-control"pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"required></td>
+    </tr>
+    <tr><th>Phoneno:</th>
+    <td><input type="number"name="phoneno"class="form-control"pattern="[0-9]" required></td></tr>
+    <tr>
+        <th>photo:</th>
+        <td><input type="file"name="img"class="form-control"required></td>
+    </tr>
+        <tr><td colspan="2"align="center"><input type="submit"value="ADD"class="btn btn-warning"></td></tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

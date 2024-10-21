@@ -1,0 +1,50 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+   <form action="/Evoting/Change_pwd_post/"method="post">
+       {% csrf_token %}
+       <table align="center" class="table table-bordered">
+
+           <input type="hidden"name="id1"value="{{ data.id }}">
+           <tr><th>Current password</th>
+           <td><input type="password"name="currentpswd"id="cpswd"class="form-control"pattern=".{10,}"required></td></tr>
+
+       <tr>
+           <th>New password</th>
+           <td><input type="password"name="frstpwd"id="pass1"pattern=".{10,}"class="form-control"required></td>
+       </tr>
+
+       <tr>
+           <th>Confirm Password</th>
+           <td><input type="password"id="pass2"class="form-control"pattern=".{10,}"required></td>
+       </tr>
+       <tr>
+           <td colspan="2"align="center"><input type="submit"value="change Password"id="change"class=" btn btn-warning"></td>
+       </tr>
+           <tr>
+               <td colspan="2" style="color: red"><p id="hint"></p></td>
+           </tr>
+           </table>
+   </form>
+</body>
+<script src="/static/jquery/jquery.js" type= "application/javascript">
+</script>
+<script>
+   $(document).ready(function () {
+       $("#change").hide();
+       $("#pass2").keyup(function () {
+           var a=$("#pass1").val()
+           var b=$("#pass2").val()
+           if (a !=b){
+                       document.getElementById('hint').innerHTML = "not same!!retype";
+           }
+           else {
+               $("#change").show();
+
+                  document.getElementById('hint').innerHTML = "ok";
+           }
+       })
+
+   })
+</script>
+{% endblock %}

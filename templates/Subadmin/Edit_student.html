@@ -1,0 +1,65 @@
+{% extends 'SubadminHome.html' %}
+{% block body %}
+<body>
+  <form action="/Evoting/Update_student/"method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     <table border="1"align="center" class="table table-responsive">
+        <input type="hidden"name="id1"value="{{ data.id }}">
+
+    <tr>
+        <th>Name</th>
+        <td><input type="text"name="sname" value="{{ data.name }}"pattern="[A-Z /a-z]+"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td><input type="text"name="gender"value="{{ data.gender }}"pattern="[A-Z /a-z]+"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>dob</th>
+        <td><input type="date"name="date"value="{{ data.dob }}"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>photo</th>
+        <td><input type="file"name="photo"class="form-control"></td>
+        <td><img src="{{ data.photo }}" height="100px"width="100px"readonly=""></td>
+    </tr>
+    <tr>
+        <th>Housename</th>
+        <td><input type="text"name="hname"value="{{ data.housename }}"pattern="[A-Z /a-z]+"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Place</th>
+        <td><input type="text"name="place"value="{{ data.place }}"pattern="[A-Z /a-z]+"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Ciy</th>
+        <td><input type="text"name="city"value="{{ data.city }}"pattern="[A-Z /a-z]+"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>State</th>
+        <td><input type="text"name="state"value="{{ data.state }}"pattern="[A-Z /a-z]+"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><input type="email"name="email"value="{{ data.email }}"pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"class="form-control"required></td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td><input type="number"name="phone"value="{{ data.phone }}"pattern="[0-9]" class="form-control"required></td>
+    </tr>
+        <th>Course</th>
+        <td><select name="course"class="form-control">
+            {% for i in data1 %}
+            <option value="{{ i.id }}" {% if i.id == data.COURSE.coursename %}selected{% endif %}>{{ i.coursename }}</option>
+            {% endfor %}
+        </select> </td>
+{#        <td><input type="text"name="course"value="{{ data.COURSE.coursename }}"></td>#}
+    </tr>
+     <tr>
+        <td colspan="2"align="center"><input type="submit"value="Update"class="btn btn-warning"></td>
+    </tr>
+
+    </table>
+  </form>
+</body>
+{% endblock %}

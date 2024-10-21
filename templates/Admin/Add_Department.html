@@ -1,0 +1,16 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/AddDep_post/"method="post">
+    {% csrf_token %}
+<table border="1"align="center" class="table table-responsive">
+        <tr>
+            <th>Deparmentname:</th>
+            <td><input type="text" name="depname" class="form-control" pattern="[A-Z /a-z]+" required></td>
+        </tr>
+        <tr><td colspan="2"align="center"><input type="submit"value="ADD" class="btn btn-warning"></td></tr>
+</table>
+</form>
+
+</body>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'SubadminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/searchelec_post/"method="post">
+    {% csrf_token %}
+    <table class=""width="60%"align="center">
+        <tr>
+            <td><input type="text" name="s1"class="form-control"required></td>
+            <td><input type="submit"class="btn btn-warning" value="Search"></td>
+        </tr>
+    </table>
+</form>
+<br>
+<table border="1"align="center"class="table table-responsive">
+    <tr style="background:#b06010;color:#282a2b;">
+        <th>Sl.no</th>
+        <th>Election Name</th>
+        <th>Election Declared Date</th>
+        <th>Election Date</th>
+        <th>Status</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+        <td>{{ i.electionname }}</td>
+        <td>{{ i.electiondeclareddate }}</td>
+        <td>{{ i.electiondate}}</td>
+        <td>{{ i.status }}</td>
+{#        <td><a href="edit">Edit</a> </td>#}
+{#        <td><a href="delete">Delete</a> </td>#}
+{#        <td><a href="assignelectioncoordinator">AssignElectionCoordinator</a> </td>#}
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

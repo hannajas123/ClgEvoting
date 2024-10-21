@@ -1,0 +1,49 @@
+{% extends 'AdminHome.html' %}
+{% block body %}
+<body>
+<form action="/Evoting/searchstud/"method="post">
+    {% csrf_token %}
+    <table class=""align="center"width="80%">
+        <tr>
+            <td><input type="text" name="s1"class="form-control"required></td>
+            <td><input type="submit"class="btn btn-warning" value="Search"></td>
+        </tr>
+    </table>
+</form>
+<br>
+<table border="1"align="center" class="table table-bordered">
+    <tr style="background:#b06010;color:#282a2b;">
+        <th>Sl.no</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>dob</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Course</th>
+        <th>semester</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+        <td>{{ i.name }}
+            <img src="{{ i.photo }}"width="100px"height="100px"></td>
+        <td>{{ i.gender }}</td>
+        <td>{{ i.dob }}</td>
+        <td>{{ i.housename }}
+        {{ i.place }}
+        {{ i.city }}
+        {{ i.state }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.phone }}</td>
+        <td>{{ i.COURSE.coursename }}</td>
+        <td>{{ i.COURSE.totalsem }}</td>
+{##}
+{#        <td><a href="edit">Edit</a> </td>#}
+{#        <td><a href="delete">Delete</a> </td>#}
+    </tr>
+
+    {% endfor %}
+</table>
+</body>
+{% endblock %}
